@@ -5,7 +5,7 @@ from django.template.defaultfilters import slugify
 class Event(models.Model):
     name = models.CharField(max_length=50)
     parent = models.ForeignKey('Event', null=True, blank=True)
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True)
 
     def __unicode__(self):
         return self.name
@@ -21,6 +21,7 @@ class Section(models.Model):
     label = models.CharField(max_length=50)
     content = models.TextField()
     event = models.ForeignKey('Event')
+    order = models.IntegerField()
 
     def __unicode__(self):
         return '%s - %s' % (self.event, self.label)

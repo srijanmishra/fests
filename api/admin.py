@@ -8,7 +8,9 @@ class SectionInline(admin.StackedInline):
 
 
 class EventAdmin(admin.ModelAdmin):
-    fields = ['name', 'parent']
+    prepopulated_fields = {
+        'slug': ('name',),
+    }
     inlines = [SectionInline]
 
 
