@@ -1,12 +1,13 @@
 from django.conf.urls import patterns, include, url
 from tastypie.api import Api
-from api.apihandler import EventResource
+from api.apihandler import EventResource, PageResource
 from django.contrib import admin
 
 admin.autodiscover()
 
 v1_api = Api(api_name='v1')
 v1_api.register(EventResource())
+v1_api.register(PageResource())
 
 urlpatterns = patterns('',
     # Examples:

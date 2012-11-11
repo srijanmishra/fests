@@ -1,23 +1,16 @@
 from django.db import models
-from django.template.defaultfilters import slugify
 
 
 class Event(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=100)
     parent = models.ForeignKey('Event', null=True, blank=True)
     slug = models.SlugField(unique=True)
 
     def __unicode__(self):
         return self.name
 
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)[:50]
 
-        return super(Event, self).save(*args, **kwargs)
-
-
-class Section(models.Model):
+class EventSection(models.Model):
     label = models.CharField(max_length=50)
     content = models.TextField()
     event = models.ForeignKey('Event')
@@ -30,3 +23,26 @@ class Section(models.Model):
 
     def __unicode__(self):
         return '%s - %s' % (self.event, self.label)
+
+
+class Page(models.Model):
+    title = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True)
+
+    def __unicode__(self):
+        return self.title
+
+
+class PageSection(models.Model):
+    label = models.CharField(max_length=50)
+    content = models.TextField()
+    page = models.ForeignKey('Page')
+    order = models.IntegerField()
+
+
+    class Meta:
+        ordering = ('order',)
+
+
+    def __unicode__(self):
+        return '%s - %s' % (self.page, self.label)
