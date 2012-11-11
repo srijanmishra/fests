@@ -2,6 +2,7 @@ Django==1.4.2
 argparse==1.2.1
 dj-database-url==0.2.1
 -e git+https://github.com/j4nu5/django-tastypie.git@63055a7a3c8bf53eac1b879c3bebfd6898416721#egg=django_tastypie-dev
+gunicorn==0.15.0
 mimeparse==0.1.3
 psycopg2==2.4.5
 python-dateutil==2.1
