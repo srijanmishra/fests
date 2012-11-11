@@ -25,4 +25,3 @@ class SectionResource(ModelResource):
         allowed_methods = ['get']
         fields = ['label', 'content', 'order']
         include_resource_uri = False
-        ordering = ['-order']

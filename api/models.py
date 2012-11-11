@@ -23,5 +23,10 @@ class Section(models.Model):
     event = models.ForeignKey('Event')
     order = models.IntegerField()
 
+
+    class Meta:
+        ordering = ('order',)
+
+
     def __unicode__(self):
         return '%s - %s' % (self.event, self.label)
