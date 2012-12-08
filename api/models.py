@@ -2,12 +2,12 @@ from django.db import models
 
 
 class Event(models.Model):
-    name = models.CharField(max_length=100)
+    title = models.CharField(max_length=100)
     parent = models.ForeignKey('Event', null=True, blank=True)
     slug = models.SlugField(unique=True)
 
     def __unicode__(self):
-        return self.name
+        return self.title
 
 
 class EventSection(models.Model):
@@ -16,10 +16,8 @@ class EventSection(models.Model):
     event = models.ForeignKey('Event')
     order = models.IntegerField()
 
-
     class Meta:
         ordering = ('order',)
-
 
     def __unicode__(self):
         return '%s - %s' % (self.event, self.label)
@@ -39,10 +37,8 @@ class PageSection(models.Model):
     page = models.ForeignKey('Page')
     order = models.IntegerField()
 
-
     class Meta:
         ordering = ('order',)
-
 
     def __unicode__(self):
         return '%s - %s' % (self.page, self.label)

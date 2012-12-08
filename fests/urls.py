@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 from tastypie.api import Api
 from api.apihandler import EventResource, PageResource
 from django.contrib import admin
+from django.views.generic.simple import direct_to_template
 
 admin.autodiscover()
 
@@ -11,7 +12,7 @@ v1_api.register(PageResource())
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'fests.views.home', name='home'),
+    url(r'^$', direct_to_template, {'template': 'index.html'}),
     # url(r'^fests/', include('fests.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
