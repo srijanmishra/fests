@@ -23,8 +23,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'fests',                      # Or path to database file if using sqlite3.
-        'USER': 'kush',                      # Not used with sqlite3.
-        'PASSWORD': 'abc123',                  # Not used with sqlite3.
+        'USER': 'vj',                      # Not used with sqlite3.
+        'PASSWORD': 'vjuneja',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -83,7 +83,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    
+
     os.path.join(PROJECT_ROOT, 'static/'),
 )
 
@@ -124,7 +124,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    
+
     os.path.join(PROJECT_ROOT, 'templates/'),
 )
 
@@ -142,7 +142,7 @@ INSTALLED_APPS = (
 
     'tastypie',
     'gunicorn',
-
+    'fests',
     'api',
 )
 
@@ -174,3 +174,6 @@ LOGGING = {
         },
     }
 }
+
+#Settings for facebook registration
+FACEBOOK_APP_SECRET = '7be92fe7ee2c2d12cd2351d2a2c0dbb8'
