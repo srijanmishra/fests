@@ -53,3 +53,26 @@ def fb_register(request):
             user.fb_ID = data['user_id']
             user.save()
             return HttpResponseRedirect('//www.technex.in')
+
+
+
+
+
+def event-register(request):
+	if request.method == 'POST':
+		registration = EventRegistration()
+		registration.team_name = request.POST['team_name']
+		registration.team_representative = request.POST['team_representative']
+		registration.representative_contact = request.POST['representative_contact']
+		registration.branch = request.POST['branch']
+		registration.email = request.POST['email']
+		registration.event = request.POST['event']
+		registration.member_2_details = request.POST['member_2_details']
+		registration.member_3_details = request.POST['member_3_details']
+		registration.member_4_details = request.POST['member_4_details']
+		registration.member_5_details = request.POST['member_5_details']
+		registration.save()
+		return HttpResponseRedirect('//www.technex.in/')
+
+	else:
+		return HttpResponseRedirect('//www.technex.in/')

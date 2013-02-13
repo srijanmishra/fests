@@ -16,3 +16,21 @@ class Reg_User(models.Model):
 
     def __unicode__(self):
         return self.name
+
+
+class EventRegistration(models.model):
+	team_name = models.CharField(max_length=30)
+	team_representative = models.CharField(max_length=30)
+	representative_contact = models.BigIntegerField()
+	branch = models.CharField(max_length=30)
+	event = models.CharField(max_length=100)
+	member_2_details = models.CharField(max_length=500)
+	member_3_details = models.CharField(max_length=500)
+	member_4_details = models.CharField(max_length=500)
+	member_5_details = models.CharField(max_length=500)
+
+	def __unicode__(self):
+		return '%s - %s' % (self.event,self.team_name)
+
+	def __str__(self):
+		return '%s - %s' % (self.event,self.team_name)

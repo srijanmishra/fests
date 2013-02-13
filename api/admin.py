@@ -1,6 +1,6 @@
 from django.contrib import admin
 from api.models import Event, EventSection, Page, PageSection
-from fests.models import Reg_User
+from fests.models import Reg_User, EventRegistration
 
 class EventSectionInline(admin.StackedInline):
     model = EventSection
@@ -28,3 +28,4 @@ class PageAdmin(admin.ModelAdmin):
 admin.site.register(Event, EventAdmin)
 admin.site.register(Page, PageAdmin)
 admin.site.register(Reg_User)
+admin.site.register(EventRegistration)

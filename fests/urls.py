@@ -13,6 +13,7 @@ v1_api.register(PageResource())
 urlpatterns = patterns('',
     # Examples:'
     url(r'^fbconnect/',fb_register),
+    url(r'^event-register/',event_register),
     #url(r'^$', direct_to_template, {'template': 'index.html'}),
     # url(r'^fests/', include('fests.foo.urls')),
 
